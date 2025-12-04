@@ -6,25 +6,26 @@
 
 #     http://www.apache.org/licenses/LICENSE-2.0
 
-from .testbench import Pendulum
-from .erob.actuator import ErobActuator
-from .dynamixel.actuator import MXActuator
-from .feetech.actuator import STS3215Actuator
-from .unitree.actuator import UnitreeGo1Actuator
+from testbench import Pendulum
+# from erob.actuator import ErobActuator
+# from dynamixel.actuator import MXActuator
+# from feetech.actuator import STS3215Actuator
+# from unitree.actuator import UnitreeGo1Actuator
+from hls.actuator import HlsActuator
 
 actuators = {
     # Dynamixel MX series
-    "mx64": lambda: MXActuator(Pendulum),
-    "mx106": lambda: MXActuator(Pendulum),
+    # "mx64": lambda: MXActuator(Pendulum),
+    # "mx106": lambda: MXActuator(Pendulum),
     
-    # eRob actuators with custom PD controller (mostly used in experiments to model
-    # frictions)
-    "erob80_100": lambda: ErobActuator(Pendulum, damping=2.0),
-    "erob80_50": lambda: ErobActuator(Pendulum, damping=1.0),
+    # # eRob actuators with custom PD controller (mostly used in experiments to model
+    # # frictions)
+    # "erob80_100": lambda: ErobActuator(Pendulum, damping=2.0),
+    # "erob80_50": lambda: ErobActuator(Pendulum, damping=1.0),
 
     # Feetech STS3215
-    "sts3215": lambda: STS3215Actuator(Pendulum),
-
+    # "sts3215": lambda: STS3215Actuator(Pendulum),
+    "hls": lambda: HlsActuator(Pendulum),
     # Unitree Go1
-    "unitree_go1": lambda: UnitreeGo1Actuator(Pendulum)
+    # "unitree_go1": lambda: UnitreeGo1Actuator(Pendulum)
 }

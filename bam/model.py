@@ -8,9 +8,9 @@
 
 import numpy as np
 import json
-from .actuator import Actuator
-from .actuators import actuators
-from .parameter import Parameter
+from actuator import Actuator
+from actuators import actuators
+from parameter import Parameter
 
 
 class Model:

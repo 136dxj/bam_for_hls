@@ -10,10 +10,10 @@ import argparse
 import numpy as np
 import matplotlib.pyplot as plt
 
-from .model import load_model, DummyModel
-from .actuators import actuators
-from . import simulate
-from . import logs
+from model import load_model, DummyModel
+from actuators import actuators
+import simulate
+import logs
 
 arg_parser = argparse.ArgumentParser()
 arg_parser.add_argument("--logdir", type=str, required=True)
@@ -94,7 +94,7 @@ for log in logs.logs:
         for model_name, sim_controls in zip(all_names, all_sim_controls):
             ax3.plot(
                 ts,
-                sim_controls,
+                -0.1*sim_controls,
                 label=f"{model_name}_{dummy.actuator.control_unit()}",
             )
     # Shading the areas where torque is False

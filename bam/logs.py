@@ -11,7 +11,7 @@ import numpy as np
 import copy
 import random
 import json
-from . import message
+import message
 
 
 class Logs:

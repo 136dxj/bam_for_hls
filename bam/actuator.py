@@ -7,9 +7,9 @@
 #     http://www.apache.org/licenses/LICENSE-2.0
 
 import numpy as np
-from .testbench import Testbench
-from bam.parameter import Parameter
-from .message import yellow, print_parameter
+from testbench import Testbench
+from parameter import Parameter
+from message import yellow, print_parameter
 
 
 class Actuator:

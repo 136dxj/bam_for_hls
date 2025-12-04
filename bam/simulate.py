@@ -8,7 +8,7 @@
 
 import numpy as np
 from copy import copy
-from .model import Model
+from model import Model
 
 
 class Simulator:

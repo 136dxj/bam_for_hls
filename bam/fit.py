@@ -19,11 +19,11 @@ import time
 import optuna
 import wandb
 
-from .logs import Logs
-from .model import models, Model, load_model
-from . import message
-from . import simulate
-from .actuators import actuators
+from logs import Logs
+from model import models, Model, load_model
+import message
+import simulate
+from actuators import actuators
 
 arg_parser = argparse.ArgumentParser()
 arg_parser.add_argument("--logdir", type=str, required=True)
@@ -64,9 +64,10 @@ def compute_score(model: Model, log: dict) -> float:
         log, reset_period=args.reset_period, simulate_control=True
     )
     positions = np.array(result[0])
+    vel = np.array(result[1])
     log_positions = np.array([entry["position"] for entry in log["entries"]])
-
-    return np.mean(np.abs(positions - log_positions))
+    log_vel = np.array([entry["speed"] for entry in log["entries"]])
+    return np.mean(np.abs(positions - log_positions)) #+ 0.1 * np.mean(np.abs(vel - log_vel))
 
 
 # def compute_scores(model: Model, compute_logs=None):
